@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+section#main-section {
+  height: 100%;
+}
+
+table#io-list {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 90%;
+  border: 1px solid #aaa;
+  margin: 30px auto;
+}
+
+table#io-list th,
+table#io-list td {
+  border: 1px solid #aaaa;
+  padding: 8px;
+  text-align: center;
+  vertical-align: top;
+}
+
+table#io-list th {
+  background-color: honeydew;
+  color: black;
+}
+
+table#io-list tr:nth-child(n + 2):nth-last-child(n + 2) {
+  cursor: pointer;
+}
+
+table#io-list tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+table#io-list tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table#io-list tr:nth-last-child(1) {
+  background-color: honeydew;
+}
+
+table#io-list tr:nth-child(n + 2):nth-last-child(n + 2):hover {
+  background-color: #ddd;
+}
+
+div#write {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: right;
+}
+div#new-write a {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgb(236, 186, 186);
+  color: brown;
+  font-size: 15px;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+div#write a:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  background-color: brown;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

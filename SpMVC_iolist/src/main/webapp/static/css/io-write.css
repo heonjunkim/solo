@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+form#io {
+  width: 60%;
+  margin: 10px auto;
+}
+
+form#io div {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+}
+
+form#io label {
+  flex: 1;
+  text-align: right;
+  padding: 8px;
+  margin: 5px;
+}
+
+form#io div.hidden {
+	display: none;
+}
+
+form#io input, form#io select {
+  
+  flex: 5;
+  border: 1px solid #ddd;
+  margin: 5px;
+  padding: 8px;
+}
+
+form#io fieldset {
+  border: 1px solid rgb(0, 100, 200);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+form#io #title {
+  width: 70%;
+}
+
+form#io div.btn-box {
+  justify-content: flex-end;
+}
+
+form#io button {
+  border: none;
+  outline: 0;
+  padding: 0.5rem 12px;
+  border-radius: 5px;
+}
+
+form#io button#btn-save {
+  background-color: rgb(236, 186, 186);
+  color: brown;
+  padding: 0.5rem 25px;
+}
+
+form#io button:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);

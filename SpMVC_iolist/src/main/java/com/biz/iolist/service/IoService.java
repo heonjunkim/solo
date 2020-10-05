@@ -1,13 +1,7 @@
 package com.biz.iolist.service;
 
-import java.util.List;
+import com.biz.iolist.model.IoVO;
 
-public interface IoService<VO, PK> {
-	
-	public List<VO> selectAll();
-	public VO findByID(PK id);
-	public int insert(VO vo);
-	public int udpate(VO vo);
-	public int delete(VO vo);
+public interface IoService extends GenericService<IoVO, Long> {
 
 }

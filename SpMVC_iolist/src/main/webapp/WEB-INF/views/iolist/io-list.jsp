@@ -1,54 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>나의 홈페이지</title>
-</head>
-<body>
-	<table id="iolist">
-		<tr>
-			<th>No</th>
-			<th>일자</th>
-			<th>시각</th>
-			<th>상품명</th>
-			<th>구분</th>
-			<th>단가</th>
-			<th>수량</th>
-			<th>합계</th>
-		</tr>
+<script src="${rootPath}/static/js/home.js?ver=001"></script>
+
+
+<table id="iolist">
+	<tr>
+		<th>No</th>
+		<th>일자</th>
+		<th>시각</th>
+		<th>상품명</th>
+		<th>매입단가</th>
+		<th>판매단가</th>
+		<th>수량</th>
+		<th>매입합계</th>
+		<th>판매합계</th>
+	</tr>
+	<c:forEach items="${IO}" var="io" varStatus="i">
 
 		<c:choose>
-			<c:when test="${empty IOLIST}">
+			<c:when test="${io.io_input =='1'}">
+				<tr class=io_item data-id="${io.seq}">
+					<td>${i.count}</td>
+					<td>${io.io_date}</td>
+					<td>${io.io_time}</td>
+					<td>${io.io_pname}</td>
+					<td>${io.io_price}</td>
+					<td></td>
+					<td>${io.io_quan}</td>
+					<td class="i_price">${io.io_total}</td>
+					<td></td>
 			</c:when>
 			<c:otherwise>
-				<c:forEach items="${IO_LIST}" var="iolist" varStatus="i">
-					<tr data-seq="${io.seq}">
-						<td>${i.count}</td>
-						<td class="iolist-title" data-seq="${io.seq}">${io.title}</td>
-						<td>${io.io_date}</td>
-						<td>${io.io_time}</td>
-						<td>${io.io_pname}</td>
-						<td>${io.io_input}</td>
-						<td>${io.io_price}</td>
-						<td>${io.io_quan}</td>
-						<td>${io.io_total}</td>
-					</tr>
-				</c:forEach>
+				<tr class=io_item data-id="${io.seq}">
+					<td>${i.count}</td>
+					<td>${io.io_date}</td>
+					<td>${io.io_time}</td>
+					<td>${io.io_pname}</td>
+					<td></td>
+					<td>${io.io_price}</td>
+					<td>${io.io_quan}</td>
+					<td></td>
+					<td class="o_price">${io.io_total}</td>
+				</tr>
 			</c:otherwise>
 		</c:choose>
-	</table>
-	<div id="io-link-box">
-		<a href="${rootPath}/iolist/input">새로작성</a>
-	</div>
+	</c:forEach>
+	<tr>
+		<td colspan="7">합계</td>
+		<td id="i_total"></td>
+		<td id="o_total"></td>
+
+	</tr>
+
+</table>
+<div id="write">
+	<a href="${rootPath}/write">새로작성</a>
+</div>
 
 
 
 
-</body>
-</html>
+

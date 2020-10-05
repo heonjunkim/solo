@@ -1,64 +1,95 @@
 package com.biz.iolist.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
+
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-
-import com.biz.iolist.mapper.IoDao;
 import com.biz.iolist.model.IoVO;
+import com.biz.iolist.service.IoService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping(value="/iolist")
+@RequiredArgsConstructor
 public class IoController {
 	
-	@Autowired
-	private IoDao ioDao;
+	
+	
+	@Qualifier("iService")
+	private final IoService iService;
 	
 	
 	@Transactional
 	@RequestMapping(value="/",method=RequestMethod.GET)
-	public String list(Model model) {
+	public String home(Model model) {
 		
-		List<IoVO> ioList = ioDao.selectAll();
-		model.addAttribute("IOLIST","iolist");
-		model.addAttribute("BODY","IOLIST");
+		List<IoVO> ioList = iService.selectAll();
+		model.addAttribute("IO-LIST","iolist");
+		model.addAttribute("BODY","IO-LIST");
 		return "home";
 	}
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String write(@ModelAttribute("IOVO") IoVO ioVO, Model model) {
+
+		model.addAttribute("IOVO", ioVO);
+		model.addAttribute("BODY", "IO-WRITE");
+		return "home";
+	}
+
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String write(@ModelAttribute("IOVO") IoVO ioVO) {
+
+		iService.insert(ioVO);
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail(@RequestParam("id") Long seq, Model model) {
+
+		IoVO ioVO = iService.findById(seq);
+		model.addAttribute("IOVO", ioVO);
+		model.addAttribute("BODY", "IO-DETAIL");
+
+		return "home";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(@RequestParam("id") Long seq, Model model) {
+
+		iService.delete(seq);
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(@RequestParam("id") Long seq, @ModelAttribute("IOVO") IoVO ioVO, Model model) {
+
+		ioVO = iService.findById(seq);
+		model.addAttribute("IOVO", ioVO);
+		model.addAttribute("BODY", "IO-WRITE");
+		return "home";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(@ModelAttribute("IOVO") IoVO ioVO, Model model) {
+
+		iService.update(ioVO);
+
+		return "redirect:/";
+	}
 	
-	@RequestMapping(value="/input",method=RequestMethod.GET)
-	public String input(Model model) {
-		
-		LocalDate localDate = LocalDate.now();
-		String todayString = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(localDate);
-		String timeString = DateTimeFormatter.ofPattern("HH:mm:SS").format(localDate);
-		
-		IoVO ioVO = IoVO.builder()
-						.io_date(todayString)
-						.io_time(timeString)
-						.build();
-		model.addAttribute("BODY","IOLIST-WRITE");
-		model.addAttribute("ioVO", ioVO);		
-		return"home";
-	}
-	@RequestMapping(value="/input",method=RequestMethod.POST)
-	public String input(@ModelAttribute("ioVO")IoVO ioVO) {
-		log.debug(ioVO.toString());
-		
-		
-		return "redirect:/iolist";
-		
-	}
+	
 
 }

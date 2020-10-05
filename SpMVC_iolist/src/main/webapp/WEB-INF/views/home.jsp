@@ -4,11 +4,14 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8" />
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>매입</title>
+<link href="${rootPath}/static/css/io.css?ver=2020-10-05"
+	rel="stylesheet">
+<script>var rootPath = "${rootPath}"</script>
+<title>헤네시스 상점</title>
 </head>
 <body>
 	
@@ -20,9 +23,15 @@
 			
 			<c:when test="${BODY == 'IO-WRITE'}">
 				<%@ include file = "/WEB-INF/views/iolist/io-write.jsp" %>
-			</c:when>							
+			</c:when>
+			<c:when test="${BODY == 'IO-DETAIL'}">
+				<%@ include file = "/WEB-INF/views/iolist/io-detail.jsp" %>
+			</c:when>												
 		</c:choose>			
 	</section>
+	<footer>
+	<address>CopyRight &copy; maplegjswns@naver.com</address>	
+	</footer>
 
 </body>
 </html>
