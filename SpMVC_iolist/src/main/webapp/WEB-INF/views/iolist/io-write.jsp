@@ -6,7 +6,7 @@
 
 
 <h3>매입 데이터 등록</h3>
-<form:form id="iolist" modelAttribute="IoVO">
+<form:form id="io" modelAttribute="IoVO">
 	<fieldset>
 		<legend>매입데이터입력</legend>
 		<div>

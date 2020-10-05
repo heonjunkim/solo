@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping(value="/iolist")
-public class IosController {
+public class IoController {
 	
 	@Autowired
 	private IoDao ioDao;

@@ -30,14 +30,14 @@
 				<c:forEach items="${IO_LIST}" var="iolist" varStatus="i">
 					<tr data-seq="${io.seq}">
 						<td>${i.count}</td>
-						<td class="iolist-title" data-seq="${io.seq}">${iolist.title}</td>
-						<td>${iolist.io_date}</td>
-						<td>${iolist.io_time}</td>
-						<td>${iolist.io_pname}</td>
-						<td>${iolist.io_input}</td>
-						<td>${iolist.io_price}</td>
-						<td>${iolist.io_quan}</td>
-						<td>${iolist.io_total}</td>
+						<td class="iolist-title" data-seq="${io.seq}">${io.title}</td>
+						<td>${io.io_date}</td>
+						<td>${io.io_time}</td>
+						<td>${io.io_pname}</td>
+						<td>${io.io_input}</td>
+						<td>${io.io_price}</td>
+						<td>${io.io_quan}</td>
+						<td>${io.io_total}</td>
 					</tr>
 				</c:forEach>
 			</c:otherwise>

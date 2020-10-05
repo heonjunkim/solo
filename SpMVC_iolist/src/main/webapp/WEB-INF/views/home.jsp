@@ -14,12 +14,12 @@
 	
 	<section id="main-section">
 		<c:choose>
-			<c:when test="${BODY == 'IOLIST-LIST'}">
-				<%@ include file = "/WEB-INF/views/iolist/iolist-list.jsp" %>
+			<c:when test="${BODY == 'IO-LIST'}">
+				<%@ include file = "/WEB-INF/views/iolist/io-list.jsp" %>
 			</c:when>
 			
-			<c:when test="${BODY == 'IOLIST-WRITE'}">
-				<%@ include file = "/WEB-INF/views/iolist/iolist-write.jsp" %>
+			<c:when test="${BODY == 'IO-WRITE'}">
+				<%@ include file = "/WEB-INF/views/iolist/io-write.jsp" %>
 			</c:when>							
 		</c:choose>			
 	</section>
