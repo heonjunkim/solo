@@ -48,7 +48,7 @@
  		
  	</update>
  	<delete id="delete">
- 		DELETE tbl_iolist =where
+ 		DELETE tbl_iolist WHERE seq = #{id}
  	
  	</delete>
  
