@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,7 +38,7 @@ public class IoController {
 	public String home(Model model) {
 		
 		List<IoVO> ioList = iService.selectAll();
-		model.addAttribute("IO-LIST","iolist");
+		model.addAttribute("IOLIST",ioList);
 		model.addAttribute("BODY","IO-LIST");
 		return "home";
 	}
@@ -56,8 +57,8 @@ public class IoController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public String detail(@RequestParam("id") Long seq, Model model) {
+	@RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+	public String detail(@PathVariable("id") Long seq, Model model) {
 
 		IoVO ioVO = iService.findById(seq);
 		model.addAttribute("IOVO", ioVO);

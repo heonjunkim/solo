@@ -11,6 +11,25 @@ body {
   margin: 0;
   padding: 0;
 }
+header {
+  position: relative;
+  height: 400px;
+  background-image: url("../image/치히로.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h2 {
+  font-weight: 500;
+  color: white;
+}
 
 
 section#main-section {
@@ -34,7 +53,7 @@ table#io-list td {
 }
 
 table#io-list th {
-  background-color: honeydew;
+  background-color: yellow;
   color: black;
 }
 
@@ -51,7 +70,7 @@ table#io-list tr:nth-child(odd) {
 }
 
 table#io-list tr:nth-last-child(1) {
-  background-color: honeydew;
+  background-color: skyblue;
 }
 
 table#io-list tr:nth-child(n + 2):nth-last-child(n + 2):hover {
@@ -64,12 +83,12 @@ div#write {
   padding: 10px;
   text-align: right;
 }
-div#new-write a {
+div#write a {
   border: none;
   border-radius: 5px;
   outline: none;
-  background-color: rgb(236, 186, 186);
-  color: brown;
+  background-color: red;
+  color: white;
   font-size: 15px;
   padding: 10px;
   cursor: pointer;
@@ -77,11 +96,11 @@ div#new-write a {
 }
 
 div#write a:hover {
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: red;
 }
 
 footer {
-  background-color: brown;
+  background-color: pink;
   color: white;
   text-align: center;
   padding: 10px;

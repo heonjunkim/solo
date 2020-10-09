@@ -11,45 +11,45 @@
 <section id="detail-main">
 	<article id="io-info">
 		<c:choose>
-			<c:when test="${IoVO.io_input=='1'}">
+			<c:when test="${IOVO.io_input=='1'}">
 				<h3>일자</h3>
-				<p>${IoVO.io_date}</p>
+				<p>${IOVO.io_date}</p>
 				<br />
 				<h3>시각</h3>
-				<p>${IoVO.io_time}</p>
+				<p>${IOVO.io_time}</p>
 				<br />
 				<h3>상품명</h3>
-				<p>${IoVO.io_pname}</p>
+				<p>${IOVO.io_pname}</p>
 				<br />
 				<h3>매입단가</h3>
-				<p>${IoVO.io_price}</p>
+				<p>${IOVO.io_price}</p>
 				<br />
 				<h3>수량</h3>
-				<p>${IoVO.io_quan}</p>
+				<p>${IOVO.io_quan}</p>
 				<br />
 				<h3>매입합계</h3>
-				<p>${IoVO.io_total}</p>
+				<p>${IOVO.io_total}</p>
 				<br />
 			</c:when>
 
 			<c:otherwise>
 				<h3>일자</h3>
-				<p>${IoVO.io_date}</p>
+				<p>${IOVO.io_date}</p>
 				<br />
 				<h3>시각</h3>
-				<p>${IoVO.io_time}</p>
+				<p>${IOVO.io_time}</p>
 				<br />
 				<h3>상품명</h3>
-				<p>${IoVO.io_pname}</p>
+				<p>${IOVO.io_pname}</p>
 				<br />
 				<h3>매출단가</h3>
-				<p>${IoVO.io_price}</p>
+				<p>${IOVO.io_price}</p>
 				<br />
 				<h3>수량</h3>
-				<p>${IoVO.io_quan}</p>
+				<p>${IOVO.io_quan}</p>
 				<br />
 				<h3>매출합계</h3>
-				<p>${IoVO.io_total}</p>
+				<p>${IOVO.io_total}</p>
 				<br />
 			</c:otherwise>
 		</c:choose>
@@ -59,6 +59,6 @@
 
 <section id="detail-menu">
 	<a href="${rootPath}/">리스트</a> <a
-		href="${rootPath}/update?id=${IoVO.seq}">수정</a> <a
-		href="javascript:void(0)" id="io-delete" data-id="${IoVO.seq}">삭제</a>
+		href="${rootPath}/update?id=${IOVO.seq}">수정</a> <a
+		href="javascript:void(0)" id="io-delete" data-id="${IOVO.seq}">삭제</a>
 </section>

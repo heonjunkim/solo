@@ -52,7 +52,7 @@ form#io button {
 }
 
 form#io button#btn-save {
-  background-color: rgb(236, 186, 186);
+  background-color: yellow;
   color: brown;
   padding: 0.5rem 25px;
 }

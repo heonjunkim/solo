@@ -11,9 +11,12 @@
 <link href="${rootPath}/static/css/io.css?ver=2020-10-05"
 	rel="stylesheet">
 <script>var rootPath = "${rootPath}"</script>
-<title>헤네시스 상점</title>
+<title>자유시장</title>
 </head>
 <body>
+	<header>
+		<h2>Loo9 상점</h2>
+	</header>
 	
 	<section id="main-section">
 		<c:choose>

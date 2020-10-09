@@ -13,7 +13,7 @@ article {
 }
 
 #io-info {
-  border: 2px solid darkolivegreen;
+  border: 2px solid green;
   border-radius: 8px;
   padding: 15px;
 }
@@ -55,17 +55,17 @@ hr {
   padding: 8px 16px;
   margin: 8px 4px;
   text-decoration: none;
-  background-color: darkblue;
+  background-color: skyblue;
   border-radius: 5px;
   color: white;
 }
 
 #detail-menu a:nth-child(1) {
-  background-color: brown;
+  background-color: red;
 }
 
 #detail-menu a:nth-child(3) {
-  background-color: orange;
+  background-color: blue;
 }
 
 #detail-menu a:hover {

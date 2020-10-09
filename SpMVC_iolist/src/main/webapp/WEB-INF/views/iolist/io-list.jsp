@@ -5,7 +5,7 @@
 <script src="${rootPath}/static/js/home.js?ver=001"></script>
 
 
-<table id="iolist">
+<table id="io-list">
 	<tr>
 		<th>No</th>
 		<th>일자</th>
@@ -17,7 +17,7 @@
 		<th>매입합계</th>
 		<th>판매합계</th>
 	</tr>
-	<c:forEach items="${IO}" var="io" varStatus="i">
+	<c:forEach items="${IOLIST}" var="io" varStatus="i">
 
 		<c:choose>
 			<c:when test="${io.io_input =='1'}">
